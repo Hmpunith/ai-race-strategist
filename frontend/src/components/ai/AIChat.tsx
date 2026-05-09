@@ -3,6 +3,13 @@ import { useState } from 'react';
 import { api } from '@/lib/api';
 import type { ChatMessage } from '@/types';
 
+function renderMarkdown(text: string): string {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\n/g, '<br/>');
+}
+
 const QUICK_QUESTIONS = [
   'Should we pit now?',
   'Explain the current tire strategy',
@@ -65,7 +72,7 @@ export default function AIChat({ currentLap }: { currentLap: number }) {
             {msg.role === 'assistant' && (
               <div style={{ fontSize: 10, color: 'var(--ai-purple)', fontWeight: 600, marginBottom: 4, textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 4 }}><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg> AI Strategist</div>
             )}
-            {msg.content}
+            <div dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.content) }} />
           </div>
         ))}
         {loading && (
