@@ -1,4 +1,4 @@
-# 🏎️ AI Race Strategist
+# AI Race Strategist
 
 > An AI-powered Formula 1 strategy assistant that analyzes race telemetry and provides intelligent race strategy recommendations in real time.
 
@@ -11,7 +11,7 @@ Built for the **IBM SkillsBuild AI Builders May Challenge** — *Race to innovat
 
 ---
 
-## 🏁 The Problem
+## The Problem
 
 Formula racing teams process massive amounts of telemetry and strategy data during races. Making the correct decision at the right time can determine the outcome of the race.
 
@@ -24,7 +24,7 @@ Formula racing teams process massive amounts of telemetry and strategy data duri
 
 Teams and fans often struggle to interpret complex race data in real time, leading to suboptimal decisions and missed strategic opportunities.
 
-## 🧠 Our AI/Technical Approach
+## AI / Technical Approach
 
 AI Race Strategist combines **data analytics** with **IBM Granite generative AI** to create an intelligent, interactive racing strategy platform:
 
@@ -40,13 +40,13 @@ AI Race Strategist combines **data analytics** with **IBM Granite generative AI*
 ### Architecture
 ```
 User Dashboard (Next.js + Tailwind + Recharts)
-        ↓
+        |
 Backend API (FastAPI + Python)
-        ↓
+        |
 Telemetry Processing Layer (Synthetic Monaco GP Data)
-        ↓
+        |
 AI Recommendation Engine (IBM Granite)
-        ↓
+        |
 Race Insights & Predictions
 ```
 
@@ -61,7 +61,7 @@ Race Insights & Predictions
 | AI Chat Interface | IBM Granite | Interactive race engineer assistant with quick questions |
 | Explainable AI | Custom UI | Confidence meters, factor breakdowns, and reasoning display |
 
-## 🏆 Why This Matters in Racing
+## Why This Matters in Racing
 
 1. **Democratizes F1 Strategy**: Makes complex race strategy accessible to fans, not just engineers
 2. **Real-Time Decision Support**: Processes telemetry data and provides actionable recommendations instantly
@@ -69,39 +69,39 @@ Race Insights & Predictions
 4. **Educational Tool**: Helps students and enthusiasts understand the strategic depth of motorsport
 5. **Scalable Framework**: Architecture can be extended with live APIs (OpenF1) for real-time race analysis
 
-## 🖥️ Features
+## Features
 
-### 📊 Telemetry Dashboard
+### Telemetry Dashboard
 - Lap time evolution with pit stop markers
 - Tire performance degradation curves
 - Position tracker showing all drivers with team colors
 - Interactive lap slider to explore any point in the race
 
-### 🧠 AI Strategy Panel
+### AI Strategy Panel
 - AI-powered pit window recommendations
 - Undercut/overcut opportunity analysis
 - Risk assessment radar with 5 factors
 - Confidence-scored recommendations
 - Expandable AI explanations (powered by IBM Granite)
 
-### 🏆 Race Predictions
+### Race Predictions
 - Podium probability visualization
 - Predicted finishing order with probability bars
 - Based on pace analysis, tire strategy, and position data
 
-### ⚔️ Driver Comparison
+### Driver Comparison
 - Side-by-side performance radar
 - Head-to-head statistics table
 - Sector-by-sector analysis
 - Tire management scoring
 
-### 🤖 AI Race Engineer Chat
+### AI Race Engineer Chat
 - Interactive chat with IBM Granite AI
 - Quick question buttons for common strategy queries
 - Context-aware responses based on current race state
 - Typing animation and conversation history
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -112,7 +112,7 @@ Race Insights & Predictions
 | Data | Synthetic 2024 Monaco GP simulation |
 | Design | F1-inspired dark theme, glassmorphism, Orbitron font |
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+
@@ -149,7 +149,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
 > **Note**: The app works without an API token using intelligent fallback responses. Add your Hugging Face token for live IBM Granite AI integration.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ai-race-strategist/
@@ -179,7 +179,7 @@ ai-race-strategist/
 └── README.md
 ```
 
-## 🔗 API Endpoints
+## API Endpoints
 
 | Endpoint | Method | Description |
 |---|---|---|
@@ -193,11 +193,11 @@ ai-race-strategist/
 | `/api/comparison/drivers` | GET | Head-to-head driver stats |
 | `/api/ai/chat` | POST | Interactive AI chat |
 
-## 👥 Team
+## Team
 
 Built for the IBM SkillsBuild AI Builders May Challenge 2026.
 
-## 📜 License
+## License
 
 This project is for educational purposes as part of the IBM SkillsBuild challenge.
 
