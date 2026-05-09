@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  /* Racing Color Palette */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-card-hover: rgba(255, 255, 255, 0.06);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(225, 6, 0, 0.3);
+
+  /* Brand Colors */
+  --racing-red: #e10600;
+  --racing-red-glow: rgba(225, 6, 0, 0.4);
+  --circuit-blue: #1e90ff;
+  --neon-green: #00ff87;
+  --amber-warning: #ffb800;
+  --ai-purple: #a855f7;
+  --ai-purple-glow: rgba(168, 85, 247, 0.3);
+
+  /* Text */
+  --text-primary: #f0f0f5;
+  --text-secondary: #8a8a9a;
+  --text-muted: #55556a;
+
+  /* Tire Compounds */
+  --tire-soft: #ff3333;
+  --tire-medium: #ffd700;
+  --tire-hard: #ffffff;
+
+  /* Status */
+  --status-safe: #00ff87;
+  --status-caution: #ffb800;
+  --status-danger: #ff3333;
+
+  /* Fonts */
+  --font-heading: 'Orbitron', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--racing-red);
+}
+
+/* Glass Card */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Glow Effects */
+.glow-red {
+  box-shadow: 0 0 20px var(--racing-red-glow), inset 0 0 20px rgba(225, 6, 0, 0.05);
+}
+.glow-purple {
+  box-shadow: 0 0 20px var(--ai-purple-glow), inset 0 0 20px rgba(168, 85, 247, 0.05);
+}
+.glow-green {
+  box-shadow: 0 0 15px rgba(0, 255, 135, 0.2);
+}
+
+/* Animated Gradient Border */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--racing-red), var(--ai-purple), var(--circuit-blue));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% { background: linear-gradient(0deg, var(--racing-red), var(--ai-purple), var(--circuit-blue)); }
+  25% { background: linear-gradient(90deg, var(--racing-red), var(--ai-purple), var(--circuit-blue)); }
+  50% { background: linear-gradient(180deg, var(--racing-red), var(--ai-purple), var(--circuit-blue)); }
+  75% { background: linear-gradient(270deg, var(--racing-red), var(--ai-purple), var(--circuit-blue)); }
+  100% { background: linear-gradient(360deg, var(--racing-red), var(--ai-purple), var(--circuit-blue)); }
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Racing stripe decoration */
+.racing-stripe {
+  position: relative;
+}
+.racing-stripe::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--racing-red), transparent);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+/* Metric Value */
+.metric-value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* Status Indicators */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-dot.safe { background: var(--status-safe); box-shadow: 0 0 8px var(--status-safe); }
+.status-dot.caution { background: var(--status-caution); box-shadow: 0 0 8px var(--status-caution); }
+.status-dot.danger { background: var(--status-danger); box-shadow: 0 0 8px var(--status-danger); }
+
+/* IBM Granite Badge */
+.granite-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(30, 144, 255, 0.15));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ai-purple);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Typing animation for AI chat */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.typing-cursor::after {
+  content: '▋';
+  animation: blink 1s infinite;
+  color: var(--ai-purple);
+}
+
+/* Background noise texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(225, 6, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(30, 144, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(168, 85, 247, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
