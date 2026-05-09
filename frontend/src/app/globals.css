@@ -211,6 +211,20 @@ html, body {
   color: var(--ai-purple);
 }
 
+/* Select & Dropdown */
+select {
+  color-scheme: dark;
+}
+select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 8px;
+}
+select option:checked {
+  background: var(--racing-red);
+  color: #fff;
+}
+
 /* Background noise texture */
 body::before {
   content: '';
