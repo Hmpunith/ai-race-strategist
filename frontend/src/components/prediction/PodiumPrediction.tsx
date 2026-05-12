@@ -53,7 +53,8 @@ export default function PodiumPrediction({ predictions }: { predictions: PodiumT
             <XAxis dataKey="name" stroke="var(--text-muted)" fontSize={12} tickLine={false} />
             <YAxis stroke="var(--text-muted)" fontSize={11} tickLine={false} tickFormatter={v => `${v}%`} />
             <Tooltip contentStyle={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 8, fontSize: 12 }}
-              formatter={(v: number) => [`${v}%`, 'Podium Chance']} />
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              formatter={(v: any) => [`${v}%`, 'Podium Chance']} />
             <Bar dataKey="podium" radius={[4, 4, 0, 0]} animationDuration={1500}>
               {chartData.map((entry, i) => (
                 <Cell key={i} fill={entry.color} fillOpacity={0.7} />

@@ -28,7 +28,8 @@ export default function LapTimeChart({ laps }: { laps: LapData[] }) {
         <XAxis dataKey="lap" stroke="var(--text-muted)" fontSize={11} tickLine={false} />
         <YAxis domain={[Math.floor(minTime - 0.5), Math.ceil(maxTime + 0.5)]} stroke="var(--text-muted)" fontSize={11} tickLine={false} tickFormatter={v => `${v}s`} />
         <Tooltip contentStyle={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 8, fontSize: 12 }}
-          formatter={(value: number) => [`${value?.toFixed(3)}s`, 'Lap Time']}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          formatter={(value: any) => [`${Number(value)?.toFixed(3)}s`, 'Lap Time']}
           labelFormatter={l => `Lap ${l}`} />
         {pitLaps.map(lap => (
           <ReferenceLine key={lap} x={lap} stroke="var(--racing-red)" strokeDasharray="4 4" strokeOpacity={0.5} />

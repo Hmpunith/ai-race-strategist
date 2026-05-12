@@ -44,7 +44,8 @@ export default function PositionTracker({ positions, currentLap }: { positions: 
           <YAxis reversed domain={[1, 10]} stroke="var(--text-muted)" fontSize={11} tickLine={false} tickFormatter={v => `P${v}`} />
           <Tooltip contentStyle={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 8, fontSize: 12 }}
             labelFormatter={l => `Lap ${l}`}
-            formatter={(value: number, name: string) => [`P${value}`, name]} />
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            formatter={(value: any, name: any) => [`P${value}`, name]} />
           {driverCodes.map(code => {
             const info = driverMap.get(code);
             return (

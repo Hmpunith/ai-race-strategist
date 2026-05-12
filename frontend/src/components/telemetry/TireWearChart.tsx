@@ -26,7 +26,8 @@ export default function TireWearChart({ tires }: { tires: TireData[] }) {
         <XAxis dataKey="lap" stroke="var(--text-muted)" fontSize={11} tickLine={false} />
         <YAxis domain={[0, 100]} stroke="var(--text-muted)" fontSize={11} tickLine={false} tickFormatter={v => `${v}%`} />
         <Tooltip contentStyle={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: 8, fontSize: 12 }}
-          formatter={(value: number, name: string) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          formatter={(value: any, name: any) => {
             if (name === 'wear') return [`${value}%`, 'Tire Life'];
             return [value, name];
           }}
