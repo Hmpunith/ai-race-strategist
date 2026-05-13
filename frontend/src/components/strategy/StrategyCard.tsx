@@ -1,6 +1,13 @@
 'use client';
 import type { StrategyRecommendation } from '@/types';
 
+function renderMarkdown(text: string): string {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\n/g, '<br/>');
+}
+
 const URGENCY_COLORS: Record<string, string> = {
   low: 'var(--neon-green)', medium: 'var(--circuit-blue)',
   high: 'var(--amber-warning)', critical: 'var(--racing-red)',
@@ -62,7 +69,7 @@ export default function StrategyCard({ strategy, onRefresh }: { strategy: Strate
           View AI Explanation
         </summary>
         <div style={{ padding: 16, background: 'rgba(168, 85, 247, 0.05)', borderRadius: 8, border: '1px solid rgba(168, 85, 247, 0.15)', fontSize: 13, lineHeight: 1.6, color: 'var(--text-secondary)', whiteSpace: 'pre-wrap' }}>
-          {strategy.explanation}
+          <div dangerouslySetInnerHTML={{ __html: renderMarkdown(strategy.explanation) }} />
         </div>
       </details>
 
